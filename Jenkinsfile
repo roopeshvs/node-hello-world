@@ -16,7 +16,7 @@ pipeline {
           steps {
             withAWS(region:'us-east-1',credentials:'aws-credentials') {
               s3Delete(bucket: 'roopesh-jenkins', path:'**/*')
-              s3Upload(bucket: 'roopesh-jenkins', workingDir:'build', includePathPattern:'**/*');
+              s3Upload(bucket: 'roopesh-jenkins', workingDir:'**/*', includePathPattern:'**/*');
             }
           }
       }
