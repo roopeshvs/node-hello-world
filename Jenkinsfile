@@ -13,20 +13,6 @@ pipeline {
         sh 'npm install'
       }
     }
-    stage('Test and Build') {
-      parallel {
-        stage('Run Tests') {
-          steps {
-            sh 'npm run test'
-          }
-        }
-        stage('Create Build Artifacts') {
-          steps {
-            sh 'npm run build'
-          }
-        }
-      }
-    }
     stage('Deployment') {
           steps {
             withAWS(region:'us-east-1',credentials:'aws-credentials') {
