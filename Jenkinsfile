@@ -1,4 +1,3 @@
-
 pipeline {
   agent any
   tools {nodejs "nodejs"}
@@ -22,5 +21,4 @@ pipeline {
           }
       }
     }
-  }
-view rawJenkinsfile hosted with ❤ by GitHub
+}
