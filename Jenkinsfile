@@ -14,10 +14,8 @@ pipeline {
     }
     stage('Deployment') {
           steps {
-            withAWS(region:'us-east-1',credentials:'aws-credentials') {
-              s3Delete(bucket: 'roopesh-jenkins', path:'**/*')
-              s3Upload(bucket: 'roopesh-jenkins', includePathPattern:'**/*');
-            }
+            sh 'aws s3 rm s3://roopesh-jenkins --recursive'
+            sh 'aws s3 cp . s3://roopesh-jenkins --recursive --include "*"'
           }
       }
     }
